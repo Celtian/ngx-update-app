@@ -5,7 +5,7 @@ import { provideUpdateApp } from '../../../ngx-update-app/src/public-api';
 export const appConfig: ApplicationConfig = {
   providers: [
     provideUpdateApp({
-      interval: 1000,
+      interval: 1000 * 60,
       onUpdate: () => {
         console.log('should update');
       }

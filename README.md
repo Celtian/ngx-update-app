@@ -34,7 +34,7 @@ yarn add ngx-update-app
 export const appConfig: ApplicationConfig = {
   providers: [
     provideUpdateApp({
-      interval: 1000,
+      interval: 1000 * 60, // check new version every minute
       onUpdate: () => {
         console.log('should update');
       }
@@ -57,10 +57,10 @@ export class AppComponent {}
 
 ## Options
 
-| Option       | Type     | Default   | Description                             |
-| ------------ | -------- | --------- | --------------------------------------- |
-| **interval** | number   | undefined | interval to check new version           |
-| **onUpdate** | function | undefined | function which will be called on update |
+| Option       | Type     | Default   | Description                                   |
+| ------------ | -------- | --------- | --------------------------------------------- |
+| **interval** | number   | undefined | interval to check new version in milliseconds |
+| **onUpdate** | function | undefined | function which will be called on update       |
 
 ## Dependencies
 
