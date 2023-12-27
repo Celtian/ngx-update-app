@@ -1,14 +1,17 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { NgxUpdateAppDirective } from '../../../ngx-update-app/src/public-api';
+import { VERSION } from '../environments/version';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrl: './app.component.scss',
+  hostDirectives: [NgxUpdateAppDirective]
 })
 export class AppComponent {
-  title = 'demo';
+  public readonly title = 'ngx-update-app';
+  public readonly version = VERSION;
 }

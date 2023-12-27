@@ -13,7 +13,7 @@
       "projectType": "library",
       "root": "projects/ngx-update-app",
       "sourceRoot": "projects/ngx-update-app/src",
-      "prefix": "lib",
+      "prefix": "ngx",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -75,7 +75,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets"
+              "projects/demo/src/assets",
+              "projects/demo/src/manifest.webmanifest"
             ],
             "styles": [
               "projects/demo/src/styles.scss"
@@ -96,7 +97,8 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "serviceWorker": "projects/demo/ngsw-config.json"
             },
             "development": {
               "optimization": false,
@@ -135,7 +137,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets"
+              "projects/demo/src/assets",
+              "projects/demo/src/manifest.webmanifest"
             ],
             "styles": [
               "projects/demo/src/styles.scss"
