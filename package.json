@@ -1,0 +1,102 @@
+{
+  "name": "ngx-update-app",
+  "version": "0.0.0",
+  "author": {
+    "name": "Dominik Hladík",
+    "email": "dominik.hladik@seznam.cz",
+    "url": "https://github.com/Celtian"
+  },
+  "private": true,
+  "license": "MIT",
+  "description": "",
+  "scripts": {
+    "ng": "ng",
+    "start:demo": "ng serve",
+    "start": "ng build ngx-update-app --watch",
+    "build:demo": "ng build demo --configuration production",
+    "build": "ng build ngx-update-app --configuration production",
+    "test": "ng test",
+    "lint": "ng lint",
+    "script:create-version": "yarn tsx ./scripts/create-version.ts",
+    "script:sync-projects": "yarn tsx ./scripts/sync-projects.ts",
+    "script:gpr-setup": "yarn tsx ./scripts/gpr-setup.ts",
+    "postinstall": "yarn script:create-version",
+    "prepare": "husky install",
+    "version": "yarn script:sync-projects && git add projects/ngx-update-app/ && auto-changelog -p && git add CHANGELOG.md",
+    "postversion": "git push && git push --follow-tags",
+    "publish:beta": "yarn && yarn build && npm publish --folder dist --tag beta",
+    "release:beta": "npm version prerelease -m \"chore(update): prelease %s β\"",
+    "release:patch": "git checkout master && npm version patch -m \"chore(update): patch release %s 🐛 \"",
+    "release:minor": "git checkout master && npm version minor -m \"chore(update): release %s 🚀\"",
+    "release:major": "git checkout master && npm version major -m \"chore(update): major release %s 💥 \"",
+    "fix-vulnerabilities": "npx yarn-audit-fix && npx browserslist --update-db"
+  },
+  "dependencies": {
+    "@angular/animations": "^17.0.0",
+    "@angular/common": "^17.0.0",
+    "@angular/compiler": "^17.0.0",
+    "@angular/core": "^17.0.0",
+    "@angular/forms": "^17.0.0",
+    "@angular/platform-browser": "^17.0.0",
+    "@angular/platform-browser-dynamic": "^17.0.0",
+    "@angular/router": "^17.0.0",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.0.8",
+    "@angular-eslint/builder": "17.1.1",
+    "@angular-eslint/eslint-plugin": "17.1.1",
+    "@angular-eslint/eslint-plugin-template": "17.1.1",
+    "@angular-eslint/schematics": "17.1.1",
+    "@angular-eslint/template-parser": "17.1.1",
+    "@angular/cli": "^17.0.0",
+    "@angular/compiler-cli": "^17.0.0",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@types/fs-extra": "^11.0.4",
+    "@types/jasmine": "~5.1.0",
+    "@typescript-eslint/eslint-plugin": "6.13.1",
+    "@typescript-eslint/parser": "6.13.1",
+    "auto-changelog": "^2.4.0",
+    "eslint": "^8.54.0",
+    "fs-extra": "^11.2.0",
+    "husky": "^8.0.3",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "lint-staged": "^15.2.0",
+    "ng-packagr": "^17.0.0",
+    "prettier": "^3.1.1",
+    "tsx": "^4.7.0",
+    "typescript": "~5.2.2"
+  },
+  "peerDependencies": {},
+  "homepage": "https://github.com/Celtian/ngx-update-app",
+  "repository": {
+    "url": "git+https://github.com/Celtian/ngx-update-app.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/Celtian/ngx-update-app/issues"
+  },
+  "keywords": [
+    "angular",
+    "app",
+    "ngx",
+    "update"
+  ],
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=20 <22"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}

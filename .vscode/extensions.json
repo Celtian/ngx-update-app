@@ -1,0 +1,15 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": [
+    "angular.ng-template",
+    "editorconfig.editorconfig",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "formulahendry.auto-rename-tag",
+    "waderyan.gitblame",
+    "tyriar.sort-lines",
+    "simonsiefke.svg-preview",
+    "shd101wyy.markdown-preview-enhanced",
+    "tht13.html-preview-vscode"
+  ]
+}
