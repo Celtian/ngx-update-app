@@ -31,7 +31,7 @@ jobs:
         run: yarn lint
 
       - name: 🧪 Run tests
-        run: yarn test --no-watch --no-progress --browsers=ChromeHeadless --code-coverage --reporters html,text-summary,lcovonly
+        run: yarn test --configuration=ci
 
       - name: ⬆️ Upload coverage reports
         uses: codecov/codecov-action@v3
