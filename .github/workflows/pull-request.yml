@@ -1,0 +1,47 @@
+name: Test PR
+# 'on': pull_request
+
+on:
+  push:
+    - master
+
+jobs:
+  install-and-test:
+    name: 🛠️ Install & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🗜️ Checkout
+        uses: actions/checkout@v3
+
+      - name: 🗜️ Setup node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: 🛠️ Install
+        uses: ./.github/actions/cached-deps
+
+      - name: 🌡️ Lint
+        run: yarn lint
+
+      - name: 🛠️ Sync versions # Sync versions
+        run: yarn syncprojects
+
+      - name: 📦 Build demo app # Build Schematics and move
+        run: yarn build:demo --base-href https://celtian.github.io/ngx-update-app/
+
+      - name: 📦 Build ngx-update-app # Build
+        run: yarn build
+
+      - name: 🧪 Run tests
+        run: yarn test --configuration=ci
+
+      - name: ⬆️ Upload coverage reports
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          fail_ci_if_error: true
+          verbose: true
+          dry_run: true
