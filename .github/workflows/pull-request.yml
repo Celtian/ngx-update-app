@@ -3,7 +3,8 @@ name: Test PR
 
 on:
   push:
-    - master
+    branches:
+      - 'master'
 
 jobs:
   install-and-test:
