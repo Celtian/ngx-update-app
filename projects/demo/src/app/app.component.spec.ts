@@ -1,29 +1,41 @@
-import { TestBed } from '@angular/core/testing';
+import { isDevMode } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { provideServiceWorker } from '@angular/service-worker';
+import { provideUpdateApp } from '../../../ngx-update-app/src/public-api';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent]
+  let fixture: ComponentFixture<AppComponent>;
+  let component: AppComponent;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      imports: [AppComponent],
+      providers: [
+        provideUpdateApp({
+          interval: 1000 * 60,
+          onUpdate: () => {
+            console.log('should update');
+          }
+        }),
+        provideServiceWorker('ngsw-worker.js', {
+          enabled: !isDevMode(),
+          registrationStrategy: 'registerWhenStable:30000'
+        })
+      ]
     }).compileComponents();
-  });
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+  }));
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+    expect(component).toBeTruthy();
   });
 
-  it(`should have the 'demo' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('demo');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it(`should get github link`, waitForAsync(() => {
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, demo');
-  });
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('.github-logo').href).toContain('https://github.com/celtian/ngx-update-app');
+  }));
 });

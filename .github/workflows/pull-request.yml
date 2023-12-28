@@ -33,12 +33,6 @@ jobs:
       - name: 🧪 Run tests
         run: yarn test --no-watch --no-progress --browsers=ChromeHeadless --code-coverage
 
-      - name: 📦 Build demo app
-        run: yarn build:demo --base-href https://celtian.github.io/ngx-update-app/
-
-      - name: 📦 Build ngx-update-app
-        run: yarn build
-
       - name: ⬆️ Upload coverage reports
         uses: codecov/codecov-action@v3
         with:
@@ -46,3 +40,9 @@ jobs:
           fail_ci_if_error: true
           verbose: true
           dry_run: true
+
+      - name: 📦 Build demo app
+        run: yarn build:demo --base-href https://celtian.github.io/ngx-update-app/
+
+      - name: 📦 Build ngx-update-app
+        run: yarn build
