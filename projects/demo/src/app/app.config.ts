@@ -6,8 +6,9 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideUpdateApp({
       interval: 1000 * 60,
-      onUpdate: () => {
-        console.log('should update');
+      onUpdateFactory: () => {
+        // you can use inject() here
+        return () => console.log('should update');
       }
     }),
     provideServiceWorker('ngsw-worker.js', {
