@@ -1,14 +1,9 @@
 name: Build & Publish
 
-# on:
-#   push:
-#     tags:
-#       - 'v*'
-
 on:
   push:
-    branches:
-      - 'master'
+    tags:
+      - 'v*'
 
 jobs:
   install-and-build:
@@ -52,43 +47,50 @@ jobs:
         run: yarn build
 
       - name: 🚀 Publish NPM
+        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
         uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_AUTH_TOKEN }}
           registry: https://npm.pkg.github.com
           package: dist/ngx-update-app
-          dry-run: true
-#          tag: ${{ contains(github.ref, 'beta') == true ? 'beta' : 'latest' }}
 
-#      - name: 🛠️ Set up package for GPR
-#      #  if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
-#        run: yarn script:gpr-setup
+      - name: 🚀 Publish NPM BETA
+        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == true
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_AUTH_TOKEN }}
+          registry: https://npm.pkg.github.com
+          package: dist/ngx-update-app
+          tag: 'beta'
 
-#      - name: 🛠️ Use GPR
-#      #  if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
-#        uses: actions/setup-node@v3
-#        with:
-#          node-version: 20
-#          registry-url: https://npm.pkg.github.com
-#          scope: '@celtian'
+      - name: 🛠️ Set up package for GPR
+        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
+        run: yarn script:gpr-setup
 
-#      - name: 🚀 Publish to GitHub Package Registry
-#      #  if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
-#        uses: JS-DevTools/npm-publish@v3
-#        with:
-#          token: ${{ github.token }}
-#          registry: https://npm.pkg.github.com
-#          package: dist/ngx-update-app
-#          dry-run: true
+      - name: 🛠️ Use GPR
+        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          registry-url: https://npm.pkg.github.com
+          scope: '@celtian'
 
-#      - name: 🛠️ Copy index.html to 404.html
-#        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
-#        run: cp ./dist/demo/browser/index.html ./dist/demo/browser/404.html
-#
-#      - name: 🚀 Deploy Github Pages
-#        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
-#        uses: peaceiris/actions-gh-pages@v3
-#        with:
-#          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-#          publish_branch: gh-pages
-#          publish_dir: ./dist/demo/browser
+      - name: 🚀 Publish to GitHub Package Registry
+        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
+        uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ github.token }}
+          registry: https://npm.pkg.github.com
+          package: dist/ngx-update-app
+
+      - name: 🛠️ Copy index.html to 404.html
+        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
+        run: cp ./dist/demo/browser/index.html ./dist/demo/browser/404.html
+
+      - name: 🚀 Deploy Github Pages
+        if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_branch: gh-pages
+          publish_dir: ./dist/demo/browser
