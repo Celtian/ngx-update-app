@@ -48,20 +48,15 @@ jobs:
 
       - name: 🚀 Publish NPM
         if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
-          registry: https://npm.pkg.github.com
-          package: dist/ngx-update-app
+        run: cd dist/ngx-upadte-app && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: 🚀 Publish NPM BETA
         if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == true
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
-          registry: https://npm.pkg.github.com
-          package: dist/ngx-update-app
-          tag: 'beta'
+        run: cd dist/ngx-upadte-app && npm publish --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: 🛠️ Set up package for GPR
         if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
@@ -77,11 +72,11 @@ jobs:
 
       - name: 🚀 Publish to GitHub Package Registry
         if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ github.token }}
-          registry: https://npm.pkg.github.com
-          package: dist/ngx-update-app
+        run: |
+          cd dist/ngx-upadte-app
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{github.token}}
 
       - name: 🛠️ Copy index.html to 404.html
         if: startsWith(github.ref, 'refs/tags/v') && contains(github.ref, 'beta') == false

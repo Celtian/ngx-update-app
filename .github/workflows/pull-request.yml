@@ -41,11 +41,3 @@ jobs:
 
       - name: 📦 Build ngx-update-app
         run: yarn build
-
-      - name: 🚀 Publish NPM
-        uses: JS-DevTools/npm-publish@v3
-        with:
-          token: ${{ secrets.NPM_AUTH_TOKEN }}
-          registry: https://npm.pkg.github.com
-          package: dist/ngx-update-app
-          dry-run: true
