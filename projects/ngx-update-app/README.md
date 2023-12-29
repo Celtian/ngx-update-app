@@ -1,24 +1,75 @@
-# NgxUpdateApp
+<p align="center">
+  <a href="https://github.com/Celtian/ngx-update-app" target="blank"><img src="assets/logo.svg?sanitize=true" alt="" width="120"></a>
+  <h1 align="center">NgxAppVersion</h1>
+</p>
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
+[![npm version](https://badge.fury.io/js/ngx-update-app.svg)](https://badge.fury.io/js/ngx-update-app)
+[![Package License](https://img.shields.io/npm/l/ngx-update-app.svg)](https://www.npmjs.com/ngx-update-app)
+[![NPM Downloads](https://img.shields.io/npm/dm/ngx-update-app.svg)](https://www.npmjs.com/ngx-update-app)
+[![Snyk](https://snyk.io//advisor/npm-package/ngx-update-app/badge.svg)](https://snyk.io//advisor/npm-package/ngx-update-app)
+[![stars](https://badgen.net/github/stars/celtian/ngx-update-app)](https://github.com/celtian/ngx-update-app/)
+[![forks](https://badgen.net/github/forks/celtian/ngx-update-app)](https://github.com/celtian/ngx-update-app/)
+[![HitCount](http://hits.dwyl.com/celtian/ngx-update-app.svg)](http://hits.dwyl.com/celtian/ngx-update-app)
 
-## Code scaffolding
+> Angular directive for writing version into DOM
 
-Run `ng generate component component-name --project ngx-update-app` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-update-app`.
-> Note: Don't forget to add `--project ngx-update-app` or else it will be added to the default project in your `angular.json` file. 
+> ✓ _Angular 17 compatible_
 
-## Build
+Here's the [demo](http://celtian.github.io/ngx-update-app/)
 
-Run `ng build ngx-update-app` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Lightweight
+- No dependencies!
+- Directive way
+- Customizable [options](#options)...
 
-## Publishing
+## Install
 
-After building your library with `ng build ngx-update-app`, go to the dist folder `cd dist/ngx-update-app` and run `npm publish`.
+```terminal
+yarn add ngx-update-app
+```
 
-## Running unit tests
+## Quick start
 
-Run `ng test ngx-update-app` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideUpdateApp({
+      interval: 1000 * 60, // check new version every minute
+      onUpdate: () => {
+        console.log('should update');
+      }
+    }),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    })
+  ]
+};
 
-## Further help
+// and put directive in root component
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+@Component({
+  standalone: true,
+  hostDirectives: [NgxUpdateAppDirective]
+})
+export class AppComponent {}
+```
+
+## Options
+
+| Option       | Type     | Default   | Description                                   |
+| ------------ | -------- | --------- | --------------------------------------------- |
+| **interval** | number   | undefined | interval to check new version in milliseconds |
+| **onUpdate** | function | undefined | function which will be called on update       |
+
+## Dependencies
+
+_None_
+
+## License
+
+Copyright &copy; 2023 [Dominik Hladik](https://github.com/Celtian)
+
+All contents are licensed under the [MIT license].
+
+[mit license]: LICENSE
