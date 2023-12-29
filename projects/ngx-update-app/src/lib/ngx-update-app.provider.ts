@@ -5,7 +5,7 @@ export const APP_VERSION_INTERVAL_TOKEN = new InjectionToken<NgxUpdateAppOptions
   '[ngxAppVersion] Interval'
 );
 
-export const APP_VERSION_ON_UPDATE_TOKEN = new InjectionToken<NgxUpdateAppOptions['onUpdate']>(
+export const APP_VERSION_ON_UPDATE_TOKEN = new InjectionToken<NgxUpdateAppOptions['onUpdateFactory']>(
   '[ngxAppVersion] On Update'
 );
 
@@ -17,7 +17,7 @@ export const provideUpdateApp = (options: NgxUpdateAppOptions): EnvironmentProvi
     },
     {
       provide: APP_VERSION_ON_UPDATE_TOKEN,
-      useFactory: options.onUpdate
+      useFactory: options.onUpdateFactory
     }
   ]);
 };

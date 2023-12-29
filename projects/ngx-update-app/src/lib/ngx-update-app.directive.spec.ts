@@ -24,7 +24,7 @@ describe('NgxUpdateAppDirective', () => {
         { provide: NgxUpdateAppService, useValue: mockUpdateService },
         provideUpdateApp({
           interval: 1000,
-          onUpdate: () => {
+          onUpdateFactory: () => {
             console.log('should update');
           }
         })
