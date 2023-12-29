@@ -41,9 +41,9 @@ jobs:
           dry_run: false
 
       - name: 📦 Build demo app
-        run: yarn build:demo --base-href https://celtian.github.io/ngx-repeat/
+        run: yarn build:demo --base-href https://celtian.github.io/ngx-update-app/
 
-      - name: 📦 Build ngx-repeat
+      - name: 📦 Build ngx-update-app
         run: yarn build
 
       - name: 🚀 Publish NPM
