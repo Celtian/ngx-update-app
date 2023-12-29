@@ -36,7 +36,6 @@ export const appConfig: ApplicationConfig = {
     provideUpdateApp({
       interval: 1000 * 60, // check new version every minute
       onUpdateFactory: () => {
-        // you can use inject() here
         return () => console.log('should update');
       }
     }),
