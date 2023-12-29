@@ -6,7 +6,7 @@
     "email": "dominik.hladik@seznam.cz",
     "url": "https://github.com/Celtian"
   },
-  "private": true,
+  "private": false,
   "license": "MIT",
   "description": "Angular directive for updating app via service workers",
   "scripts": {
