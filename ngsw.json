@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1703873598911,
+  "timestamp": 1704055379051,
   "index": "https://celtian.github.io/ngx-update-app/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://celtian.github.io/ngx-update-app/favicon.ico",
         "https://celtian.github.io/ngx-update-app/index.html",
-        "https://celtian.github.io/ngx-update-app/main-EAIM67YQ.js",
+        "https://celtian.github.io/ngx-update-app/main-QS764LQG.js",
         "https://celtian.github.io/ngx-update-app/manifest.webmanifest",
         "https://celtian.github.io/ngx-update-app/polyfills-LZBJRJJE.js",
         "https://celtian.github.io/ngx-update-app/styles-5INURTSO.css"
@@ -51,8 +51,8 @@
     "https://celtian.github.io/ngx-update-app/assets/icons/icon-72x72.png": "66805163570a092f92e370ec2a854d5702d89551",
     "https://celtian.github.io/ngx-update-app/assets/icons/icon-96x96.png": "2cc67a66bbae043d5a4d03fe8e65652aedaa1800",
     "https://celtian.github.io/ngx-update-app/favicon.ico": "9c39f434fe1261f68c5e3eefdf734630d99c5670",
-    "https://celtian.github.io/ngx-update-app/index.html": "b44d9636af4d1e4634d89a7270a6685eb0ce66a8",
-    "https://celtian.github.io/ngx-update-app/main-EAIM67YQ.js": "52bef3006e0fd4200e28c0cc13ede066d4a7f025",
+    "https://celtian.github.io/ngx-update-app/index.html": "be251970fb9fcb22ed5d46f515a634a40cb10f46",
+    "https://celtian.github.io/ngx-update-app/main-QS764LQG.js": "11f9105f2a30c590a5fb05f7c252eab2eb8f5ba1",
     "https://celtian.github.io/ngx-update-app/manifest.webmanifest": "d82d4da578b1d92f2bd15f94e4265adae347eb57",
     "https://celtian.github.io/ngx-update-app/polyfills-LZBJRJJE.js": "fda1c82c5c620f1fa442f687b3df45a037f6fcc9",
     "https://celtian.github.io/ngx-update-app/styles-5INURTSO.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
