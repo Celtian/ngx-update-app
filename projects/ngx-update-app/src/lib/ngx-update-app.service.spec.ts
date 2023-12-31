@@ -19,9 +19,10 @@ describe('NgxUpdateAppService', () => {
         { provide: SwUpdate, useValue: updateSpy },
         { provide: ApplicationRef, useValue: appRefSpy },
         provideUpdateApp({
-          interval: 1000,
+          interval: 1000 * 60,
+          dryRun: false,
           onUpdateFactory: () => {
-            console.log('should update');
+            () => console.log('Should update');
           }
         })
       ]
