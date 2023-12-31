@@ -11,7 +11,7 @@
 [![forks](https://badgen.net/github/forks/celtian/ngx-update-app)](https://github.com/celtian/ngx-update-app/)
 [![HitCount](http://hits.dwyl.com/celtian/ngx-update-app.svg)](http://hits.dwyl.com/celtian/ngx-update-app)
 
-> Angular directive for writing version into DOM
+> Angular directive for updating app via service workers
 
 > ✓ _Angular 17 compatible_
 
@@ -35,8 +35,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideUpdateApp({
       interval: 1000 * 60, // check new version every minute
+      dryRun: false, // set to true if zou want to see alert on init
       onUpdateFactory: () => {
-        return () => console.log('should update');
+        // you can use inject() here
+        return () => alert('Should update');
       }
     }),
     provideServiceWorker('ngsw-worker.js', {
@@ -60,6 +62,7 @@ export class AppComponent {}
 | Option              | Type     | Default   | Description                                   |
 | ------------------- | -------- | --------- | --------------------------------------------- |
 | **interval**        | number   | undefined | interval to check new version in milliseconds |
+| **dryRun**          | boolean  | false     | force update action once on init              |
 | **onUpdateFactory** | function | undefined | function which will be called on update       |
 
 ## Dependencies

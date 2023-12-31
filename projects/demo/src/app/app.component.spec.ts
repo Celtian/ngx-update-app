@@ -14,6 +14,7 @@ describe('AppComponent', () => {
       providers: [
         provideUpdateApp({
           interval: 1000 * 60,
+          dryRun: false,
           onUpdateFactory: () => {
             console.log('should update');
           }
