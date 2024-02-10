@@ -30,7 +30,11 @@ yarn add ngx-update-app
 
 ## Quick start
 
+1. Provide config
+
 ```typescript
+import { provideUpdateApp } from 'ngx-update-app';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideUpdateApp({
@@ -47,8 +51,12 @@ export const appConfig: ApplicationConfig = {
     })
   ]
 };
+```
 
-// and put directive in root component
+2. Use directive in root component
+
+```typescript
+import { NgxUpdateAppDirective } from 'ngx-update-app';
 
 @Component({
   standalone: true,
