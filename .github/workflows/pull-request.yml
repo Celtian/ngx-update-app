@@ -8,10 +8,10 @@ jobs:
 
     steps:
       - name: 🗜️ Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🗜️ Setup node version
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: 'https://registry.npmjs.org'
@@ -22,14 +22,14 @@ jobs:
       - name: 🛠️ Sync versions
         run: yarn script:sync-projects
 
-      - name: 🌡️ Lint
+      - name: 🧹 Lint
         run: yarn lint
 
       - name: 🧪 Run tests
         run: yarn test --code-coverage --configuration=ci
 
       - name: ⬆️ Upload coverage reports
-        uses: codecov/codecov-action@v3
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: true
