@@ -25,15 +25,13 @@ export class NgxUpdateAppService {
   public checkForUpdates(): void {
     if (this.dryRun) {
       this.onUpdate();
-    } else {
-      if (this.isEnabled) {
-        const appIsStable$ = this.appRef.isStable.pipe(first((isStable) => isStable === true));
-        const pollInterval$ = concat(appIsStable$, interval(this.interval));
-        pollInterval$.subscribe(() => this.updates.checkForUpdate());
-        this.updates.versionUpdates.pipe(filter((e) => e.type === 'VERSION_READY')).subscribe(() => {
-          this.onUpdate();
-        });
-      }
+    } else if (this.isEnabled) {
+      const appIsStable$ = this.appRef.isStable.pipe(first((isStable) => isStable === true));
+      const pollInterval$ = concat(appIsStable$, interval(this.interval));
+      pollInterval$.subscribe(() => this.updates.checkForUpdate());
+      this.updates.versionUpdates.pipe(filter((e) => e.type === 'VERSION_READY')).subscribe(() => {
+        this.onUpdate();
+      });
     }
   }
 
