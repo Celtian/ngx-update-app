@@ -73,6 +73,13 @@ export class AppComponent {}
 | **dryRun**          | boolean  | false     | force update action once on init              |
 | **onUpdateFactory** | function | undefined | function which will be called on update       |
 
+## 🔧 Compatibility
+
+| Angular | ngx-fixed-footer | Install                     |
+| ------- | ---------------- | --------------------------- |
+| >= 18   | 1.x              | `yarn add ngx-update-app`   |
+| >= 17   | 0.x              | `yarn add ngx-update-app@0` |
+
 ## 📦 Dependencies
 
 _None_
