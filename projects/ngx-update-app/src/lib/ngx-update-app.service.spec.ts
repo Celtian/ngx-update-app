@@ -1,22 +1,25 @@
-import { TestBed } from '@angular/core/testing';
-
 import { ApplicationRef } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
 import { SwUpdate } from '@angular/service-worker';
-import { Subject } from 'rxjs';
+import { Subject, of } from 'rxjs';
 import { provideUpdateApp } from './ngx-update-app.provider';
 import { NgxUpdateAppService } from './ngx-update-app.service';
 
 describe('NgxUpdateAppService', () => {
   let service: NgxUpdateAppService;
-  let updateSpy: jasmine.SpyObj<SwUpdate>;
-  let appRefSpy: jasmine.SpyObj<ApplicationRef> & { afterTick: Subject<void> };
+  let updateSpy: jest.Mocked<Partial<SwUpdate>>;
+  let appRefSpy: jest.Mocked<Partial<ApplicationRef>> & { afterTick: Subject<void> };
 
   beforeEach(() => {
-    updateSpy = jasmine.createSpyObj('SwUpdate', ['checkForUpdate', 'activateUpdate']);
-    appRefSpy = jasmine.createSpyObj('ApplicationRef', ['isStable']) as jasmine.SpyObj<ApplicationRef> & {
-      afterTick: Subject<void>;
+    updateSpy = {
+      checkForUpdate: jest.fn(),
+      activateUpdate: jest.fn()
     };
-    appRefSpy.afterTick = new Subject();
+
+    appRefSpy = {
+      isStable: of(true),
+      afterTick: new Subject()
+    };
 
     TestBed.configureTestingModule({
       providers: [
