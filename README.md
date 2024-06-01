@@ -13,7 +13,7 @@
 
 > Angular directive for updating app via service workers
 
-> ✓ _Angular 17 compatible_
+> ✓ _Angular 18 compatible_
 
 Here's the [demo](http://celtian.github.io/ngx-update-app/)
 
@@ -22,13 +22,13 @@ Here's the [demo](http://celtian.github.io/ngx-update-app/)
 - Directive way
 - Customizable [options](#options)...
 
-## Install
+## 🛠️ Install
 
 ```terminal
 yarn add ngx-update-app
 ```
 
-## Quick start
+## 🚀 Quick start
 
 1. Provide config
 
@@ -65,7 +65,7 @@ import { NgxUpdateAppDirective } from 'ngx-update-app';
 export class AppComponent {}
 ```
 
-## Options
+## 🛠️ Options
 
 | Option              | Type     | Default   | Description                                   |
 | ------------------- | -------- | --------- | --------------------------------------------- |
@@ -73,11 +73,11 @@ export class AppComponent {}
 | **dryRun**          | boolean  | false     | force update action once on init              |
 | **onUpdateFactory** | function | undefined | function which will be called on update       |
 
-## Dependencies
+## 📦 Dependencies
 
 _None_
 
-## License
+## 🪪 License
 
 Copyright &copy; 2023 - 2024 [Dominik Hladik](https://github.com/Celtian)
 
