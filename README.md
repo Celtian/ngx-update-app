@@ -13,7 +13,7 @@
 
 > Angular directive for updating app via service workers
 
-> ✓ _Angular 18 compatible_
+> ✓ _Angular 19 compatible_
 
 Here's the [demo](http://celtian.github.io/ngx-update-app/)
 

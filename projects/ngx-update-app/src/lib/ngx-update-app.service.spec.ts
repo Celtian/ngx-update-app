@@ -29,7 +29,7 @@ describe('NgxUpdateAppService', () => {
           interval: 1000 * 60,
           dryRun: false,
           onUpdateFactory: () => {
-            () => console.log('Should update');
+            console.log('Should update');
           }
         })
       ]
