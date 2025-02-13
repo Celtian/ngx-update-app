@@ -50,11 +50,6 @@
     },
     "demo": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
       "root": "projects/demo",
       "sourceRoot": "projects/demo/src",
       "prefix": "app",
@@ -68,14 +63,13 @@
             "polyfills": [
             ],
             "tsConfig": "projects/demo/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "projects/demo/src/favicon.ico",
               "projects/demo/src/assets",
               "projects/demo/src/manifest.webmanifest"
             ],
             "styles": [
-              "projects/demo/src/styles.scss"
+              "projects/demo/src/styles.css"
             ],
             "scripts": []
           },

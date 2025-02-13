@@ -1,5 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import { ApplicationRef, Inject, Injectable, PLATFORM_ID, inject, isDevMode } from '@angular/core';
+import { ApplicationRef, Injectable, PLATFORM_ID, inject, isDevMode } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { concat, filter, first, interval } from 'rxjs';
 import {
@@ -12,15 +12,13 @@ import {
   providedIn: 'root'
 })
 export class NgxUpdateAppService {
+  private platformId = inject(PLATFORM_ID);
+  private appRef = inject(ApplicationRef);
+  private updates = inject(SwUpdate);
+
   public interval = inject(APP_VERSION_INTERVAL_TOKEN);
   public dryRun = inject(APP_VERSION_DRY_RUN_TOKEN) || false;
   public onUpdate = inject(APP_VERSION_ON_UPDATE_TOKEN);
-
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: object,
-    private appRef: ApplicationRef,
-    private updates: SwUpdate
-  ) {}
 
   public checkForUpdates(): void {
     if (this.dryRun) {

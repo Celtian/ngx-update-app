@@ -9,17 +9,11 @@ describe('NgxUpdateAppDirective', () => {
   let fixture: ComponentFixture<TestHostComponent>;
   let mockUpdateService: { checkForUpdates: jest.Mock<unknown> };
 
-  @Component({
-    template: `<div>test</div>`,
-    hostDirectives: [NgxUpdateAppDirective],
-    standalone: true
-  })
+  @Component({ template: `<div>test</div>`, hostDirectives: [NgxUpdateAppDirective] })
   class TestHostComponent {}
 
   beforeEach(() => {
-    mockUpdateService = {
-      checkForUpdates: jest.fn().mockReturnValue(of(null))
-    };
+    mockUpdateService = { checkForUpdates: jest.fn().mockReturnValue(of(null)) };
 
     TestBed.configureTestingModule({
       imports: [TestHostComponent],
