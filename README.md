@@ -45,10 +45,7 @@ export const appConfig: ApplicationConfig = {
         return () => alert('Should update');
       }
     }),
-    provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    provideServiceWorker('ngsw-worker.js', { enabled: !isDevMode(), registrationStrategy: 'registerWhenStable:30000' })
   ]
 };
 ```
@@ -58,10 +55,7 @@ export const appConfig: ApplicationConfig = {
 ```typescript
 import { NgxUpdateAppDirective } from 'ngx-update-app';
 
-@Component({
-  standalone: true,
-  hostDirectives: [NgxUpdateAppDirective]
-})
+@Component({ standalone: true, hostDirectives: [NgxUpdateAppDirective] })
 export class AppComponent {}
 ```
 
@@ -86,7 +80,7 @@ _None_
 
 ## 🪪 License
 
-Copyright &copy; 2023 - 2024 [Dominik Hladik](https://github.com/Celtian)
+Copyright &copy; 2023 - 2025 [Dominik Hladik](https://github.com/Celtian)
 
 All contents are licensed under the [MIT license].
 
