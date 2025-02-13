@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/Celtian/ngx-update-app" target="blank"><img src="assets/logo.svg?sanitize=true" alt="" width="120"></a>
-  <h1 align="center">NgxAppVersion</h1>
+  <h1 align="center">NgxUpdateVersion</h1>
 </p>
 
 [![npm version](https://badge.fury.io/js/ngx-update-app.svg)](https://badge.fury.io/js/ngx-update-app)
