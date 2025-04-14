@@ -39,7 +39,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideUpdateApp({
       interval: 1000 * 60, // check new version every minute
-      dryRun: false, // set to true if zou want to see alert on init
+      dryRun: false, // set to true if you want to see alert on init
       onUpdateFactory: () => {
         // you can use inject() here
         return () => alert('Should update');
