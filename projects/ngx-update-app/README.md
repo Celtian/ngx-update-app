@@ -13,7 +13,7 @@
 
 > Angular directive for updating app via service workers
 
-> ✓ _Angular 19 compatible_
+> ✓ _Angular 20 compatible_
 
 Here's the [demo](http://celtian.github.io/ngx-update-app/)
 
@@ -69,10 +69,11 @@ export class AppComponent {}
 
 ## 🔧 Compatibility
 
-| Angular | ngx-fixed-footer | Install                     |
-| ------- | ---------------- | --------------------------- |
-| >= 18   | 1.x              | `yarn add ngx-update-app`   |
-| >= 17   | 0.x              | `yarn add ngx-update-app@0` |
+| Angular | ngx-update-app | Install                     |
+| ------- | -------------- | --------------------------- |
+| >= 20   | 2.x            | `yarn add ngx-update-app`   |
+| >= 18   | 1.x            | `yarn add ngx-update-app@1` |
+| >= 17   | 0.x            | `yarn add ngx-update-app@0` |
 
 ## 📦 Dependencies
 
