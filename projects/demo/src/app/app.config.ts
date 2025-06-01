@@ -1,10 +1,10 @@
-import { ApplicationConfig, isDevMode, provideExperimentalZonelessChangeDetection } from '@angular/core';
+import { ApplicationConfig, isDevMode, provideZonelessChangeDetection } from '@angular/core';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideUpdateApp } from '../../../ngx-update-app/src/public-api';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideExperimentalZonelessChangeDetection(),
+    provideZonelessChangeDetection(),
     provideUpdateApp({
       interval: 1000 * 60,
       dryRun: false,
