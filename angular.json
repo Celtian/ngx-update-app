@@ -4,87 +4,66 @@
   "cli": {
     "packageManager": "yarn"
   },
+  "schematics": {
+    "@schematics/angular": {
+      "component": {
+        "skipTests": true,
+        "changeDetection": "OnPush",
+        "style": "css"
+      },
+      "class": {
+        "skipTests": true
+      },
+      "directive": {
+        "skipTests": true
+      },
+      "guard": {
+        "skipTests": true
+      },
+      "service": {
+        "skipTests": true
+      },
+      "resolver": {
+        "skipTests": true
+      }
+    }
+  },
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-update-app": {
-      "projectType": "library",
-      "root": "projects/ngx-update-app",
-      "sourceRoot": "projects/ngx-update-app/src",
-      "prefix": "ngx",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "projects/ngx-update-app/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "projects/ngx-update-app/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "projects/ngx-update-app/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:jest",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "projects/ngx-update-app/**/*.ts",
-              "projects/ngx-update-app/**/*.html"
-            ]
-          }
-        }
-      }
-    },
     "demo": {
       "projectType": "application",
+      "schematics": {},
       "root": "projects/demo",
       "sourceRoot": "projects/demo/src",
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:application",
+          "builder": "@angular/build:application",
           "options": {
-            "outputPath": "dist/demo",
-            "index": "projects/demo/src/index.html",
             "browser": "projects/demo/src/main.ts",
-            "polyfills": [
-            ],
             "tsConfig": "projects/demo/tsconfig.app.json",
             "assets": [
-              "projects/demo/src/favicon.ico",
-              "projects/demo/src/assets",
-              "projects/demo/src/manifest.webmanifest"
+              {
+                "glob": "**/*",
+                "input": "projects/demo/public"
+              }
             ],
             "styles": [
               "projects/demo/src/styles.css"
-            ],
-            "scripts": []
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "4kB",
+                  "maximumError": "8kB"
                 }
               ],
               "outputHashing": "all",
@@ -99,7 +78,7 @@
           "defaultConfiguration": "production"
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
               "buildTarget": "demo:build:production"
@@ -110,20 +89,14 @@
           },
           "defaultConfiguration": "development"
         },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "buildTarget": "demo:build"
-          }
-        },
         "test": {
-          "builder": "@angular-devkit/build-angular:jest",
+          "builder": "@angular/build:unit-test",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
+            "coverageExclude": [
+              "projects/**/environments/**",
+              "projects/ngx-update-app/**"
             ],
-            "tsConfig": "tsconfig.spec.json"
+            "coverageReporters": ["text", "html","cobertura"]
           }
         },
         "lint": {
@@ -132,36 +105,48 @@
             "lintFilePatterns": [
               "projects/demo/**/*.ts",
               "projects/demo/**/*.html"
-            ]
+            ],
+            "eslintConfig": "projects/demo/eslint.config.js"
           }
         }
       }
-    }
-  },
-  "schematics": {
-    "@schematics/angular:component": {
-      "type": "component"
     },
-    "@schematics/angular:directive": {
-      "type": "directive"
-    },
-    "@schematics/angular:service": {
-      "type": "service"
-    },
-    "@schematics/angular:guard": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:interceptor": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:module": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:pipe": {
-      "typeSeparator": "."
-    },
-    "@schematics/angular:resolver": {
-      "typeSeparator": "."
+    "ngx-update-app": {
+      "projectType": "library",
+      "root": "projects/ngx-update-app",
+      "sourceRoot": "projects/ngx-update-app/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-update-app/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ngx-update-app/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:unit-test",
+          "options": {
+            "tsConfig": "projects/ngx-update-app/tsconfig.spec.json",
+            "coverageReporters": ["text", "html","cobertura"]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/ngx-update-app/**/*.ts",
+              "projects/ngx-update-app/**/*.html"
+            ],
+            "eslintConfig": "projects/ngx-update-app/eslint.config.js"
+          }
+        }
+      }
     }
   }
 }
