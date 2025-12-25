@@ -6,8 +6,7 @@ import { resolve } from 'path';
 import { publishConfig, version } from '../package.json';
 
 const packagePath = resolve(__dirname, '..', 'projects', 'ngx-update-app', 'package.json');
-
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const pkg = require(packagePath);
 
 pkg.version = version;
