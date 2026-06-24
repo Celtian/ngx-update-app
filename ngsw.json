@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1766675542043,
+  "timestamp": 1782328829351,
   "index": "https://celtian.github.io/ngx-update-app/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://celtian.github.io/ngx-update-app/favicon.ico",
         "https://celtian.github.io/ngx-update-app/index.html",
-        "https://celtian.github.io/ngx-update-app/main-Y47NEXVJ.js",
+        "https://celtian.github.io/ngx-update-app/main-KRJZPEJ6.js",
         "https://celtian.github.io/ngx-update-app/manifest.webmanifest",
         "https://celtian.github.io/ngx-update-app/styles-5INURTSO.css"
       ],
@@ -50,8 +50,8 @@
     "https://celtian.github.io/ngx-update-app/icons/icon-512x512.png": "1de182f76f7329dfa8f9fcdd1fdcdd695bea6a99",
     "https://celtian.github.io/ngx-update-app/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "https://celtian.github.io/ngx-update-app/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
-    "https://celtian.github.io/ngx-update-app/index.html": "01d267d536efea0635cae076266f0116bea7a269",
-    "https://celtian.github.io/ngx-update-app/main-Y47NEXVJ.js": "f0bd5896913fec8a7639fe3b4ce7a75f82c9f0ab",
+    "https://celtian.github.io/ngx-update-app/index.html": "ce43ebe117adda1ac6829bc3efb857f62dab489b",
+    "https://celtian.github.io/ngx-update-app/main-KRJZPEJ6.js": "26006121a0b3a5ce77320070460cfc3677748e23",
     "https://celtian.github.io/ngx-update-app/manifest.webmanifest": "c84c37c57521131239eae37369afe61f1cdd234d",
     "https://celtian.github.io/ngx-update-app/styles-5INURTSO.css": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
   },
