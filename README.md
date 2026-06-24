@@ -13,7 +13,7 @@
 
 > Angular directive for updating app via service workers
 
-> ✓ _Angular 21 compatible_
+> ✓ _Angular 22 compatible_
 
 Here's the [demo](http://celtian.github.io/ngx-update-app/)
 
@@ -71,7 +71,8 @@ export class AppComponent {}
 
 | Angular | ngx-update-app | Install                     |
 | ------- | -------------- | --------------------------- |
-| >= 20   | 2.x            | `yarn add ngx-update-app`   |
+| >= 22   | 3.x            | `yarn add ngx-update-app`   |
+| >= 20   | 2.x            | `yarn add ngx-update-app@2` |
 | >= 18   | 1.x            | `yarn add ngx-update-app@1` |
 | >= 17   | 0.x            | `yarn add ngx-update-app@0` |
 
@@ -81,7 +82,7 @@ _None_
 
 ## 🪪 License
 
-Copyright &copy; 2023 - 2025 [Dominik Hladik](https://github.com/Celtian)
+Copyright &copy; 2023 - 2026 [Dominik Hladik](https://github.com/Celtian)
 
 All contents are licensed under the [MIT license].
 

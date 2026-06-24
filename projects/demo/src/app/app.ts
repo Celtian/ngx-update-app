@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgxUpdateAppDirective } from 'ngx-update-app';
 import { VERSION } from '../environments/version';
 
@@ -6,6 +6,7 @@ import { VERSION } from '../environments/version';
   selector: 'app-root',
   templateUrl: './app.html',
   styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   hostDirectives: [NgxUpdateAppDirective]
 })
 export class App {

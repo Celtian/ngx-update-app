@@ -10,9 +10,9 @@
   "license": "MIT",
   "description": "Angular directive for updating app via service workers",
   "peerDependencies": {
-    "@angular/common": ">=20",
-    "@angular/core": ">=20",
-    "@angular/service-worker": ">=20"
+    "@angular/common": ">=22",
+    "@angular/core": ">=22",
+    "@angular/service-worker": ">=22"
   },
   "sideEffects": false,
   "publishConfig": {
