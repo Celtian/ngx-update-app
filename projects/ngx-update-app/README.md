@@ -25,7 +25,7 @@ Here's the [demo](http://celtian.github.io/ngx-update-app/)
 ## 🛠️ Install
 
 ```terminal
-yarn add ngx-update-app
+bun add ngx-update-app
 ```
 
 ## 🚀 Quick start
@@ -69,12 +69,12 @@ export class AppComponent {}
 
 ## 🔧 Compatibility
 
-| Angular | ngx-update-app | Install                     |
-| ------- | -------------- | --------------------------- |
-| >= 22   | 3.x            | `yarn add ngx-update-app`   |
-| >= 20   | 2.x            | `yarn add ngx-update-app@2` |
-| >= 18   | 1.x            | `yarn add ngx-update-app@1` |
-| >= 17   | 0.x            | `yarn add ngx-update-app@0` |
+| Angular | ngx-update-app | Install                    |
+| ------- | -------------- | -------------------------- |
+| >= 22   | 3.x            | `bun add ngx-update-app`   |
+| >= 20   | 2.x            | `bun add ngx-update-app@2` |
+| >= 18   | 1.x            | `bun add ngx-update-app@1` |
+| >= 17   | 0.x            | `bun add ngx-update-app@0` |
 
 ## 📦 Dependencies
 
