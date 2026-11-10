@@ -1,0 +1,18 @@
+CHANGELOG.md
+  h_aa1f579535d063 7-10,13-14,17
+package.json
+  h_aa1f579535d063 3
+projects/ngx-update-app/package.json
+  h_aa1f579535d063 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b16149640cd2765083b47dd23cdfcd920b709373",
+  "prompts": {},
+  "humans": {
+    "h_aa1f579535d063": {
+      "author": "Celtian <dominik.hladik@seznam.cz>"
+    }
+  }
+}
