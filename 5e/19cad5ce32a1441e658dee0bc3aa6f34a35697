@@ -1,0 +1,18 @@
+.github/workflows/main.yml
+  h_aa1f579535d063 31
+package.json
+  h_aa1f579535d063 36-42,44,47-52,55-59,61-62,64-65,67-68,73,76
+.github/workflows/pull-request.yml
+  h_aa1f579535d063 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "5e19cad5ce32a1441e658dee0bc3aa6f34a35697",
+  "prompts": {},
+  "humans": {
+    "h_aa1f579535d063": {
+      "author": "Celtian <dominik.hladik@seznam.cz>"
+    }
+  }
+}
